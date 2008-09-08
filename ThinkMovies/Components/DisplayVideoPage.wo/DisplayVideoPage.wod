@@ -1,0 +1,104 @@
+
+ActorFirstName: WOString {
+	value = aRole.talent.firstName; //VALID
+}
+
+ActorImage: WOImage {
+	align = "ABSMIDDLE";
+	data = actorImageData;
+	key = talentPhotoCachingKey;
+	mimeType = "image/gif";
+}
+
+ActorLastName: WOString {
+	value = aRole.talent.lastName; //VALID
+}
+
+DirectorFirstName: WOString {
+	value = aDirector.firstName; //VALID
+}
+
+DirectorLastName: WOString {
+	value = aDirector.lastName; //VALID
+}
+
+Hyperlink2: WOHyperlink {
+	?movieID = movieID;
+	?reviewID = "0";
+	directActionName = "DisplayReviews";
+}
+
+Hyperlink4: WOHyperlink {
+	?movieID = movieID;
+	directActionName = "Voting";
+}
+
+MovieCategory: WOString {
+	value = movie.category; //VALID
+}
+
+MovieDirectorRepetition: WORepetition {
+	item = aDirector;
+	list = movie.directors; //VALID
+}
+
+MovieReleaseDate: WOString {
+	dateformat = "%B %d, %Y";
+	value = movie.dateReleased; //VALID
+}
+
+MovieRoles: WORepetition {
+	item = aRole;
+	list = movie.roles; //VALID
+}
+
+MovieStudio: WOString {
+	value = movie.studio.name; //VALID
+}
+
+MovieTitle: WOString {
+	value = movie.title; //VALID
+}
+
+NextMovieLink: WOHyperlink {
+	?movieID = nextMovieID;
+	directActionName = "DisplayMovie";
+	queryDictionary = queryDict;
+}
+
+NumberOfVotes: WOString {
+	value = movie.voting.numberOfVotes; //VALID
+}
+
+PreviousMovieLink: WOHyperlink {
+	?movieID = previousMovieID;
+	directActionName = "DisplayMovie";
+	queryDictionary = queryDict;
+}
+
+RentalLink: WOHyperlink {
+	?movieID = movieID;
+	href = rentalStoreURL;
+}
+
+Role: WOString {
+	value = aRole.roleName; //VALID
+}
+
+RolesRowspan: WOGenericContainer {
+	ALIGN = "RIGHT";
+	BGCOLOR = "AFAFFF";
+	ROWSPAN = computedRolesRowspan;
+	elementName = "TD";
+}
+
+String1: WOString {
+	value = movie.plotSummary.summary; //VALID
+}
+
+Toolbar: ToolbarComponent { }
+
+VotingAverage: WOString {
+	numberformat = "0.0";
+	value = movie.voting.runningAverage; //VALID
+}

@@ -1,0 +1,52 @@
+
+Conditional1: WOConditional {
+	condition = isSelectedReview;
+}
+
+Conditional2: WOConditional {
+	condition = isSelectedReview;
+}
+
+Hyperlink1: WOHyperlink {
+	?movieID = movieID;
+	directActionName = "DisplayMovie";
+}
+
+Hyperlink2: WOHyperlink {
+	?movieID = movieID;
+	directActionName = "AddReview";
+}
+
+Hyperlink3: WOHyperlink {
+	?movieID = movieID;
+	directActionName = "Voting";
+}
+
+ObjectIdentifier: WOString {
+	value = rev.reviewer; //VALID
+}
+
+SelectObjectLink: WOHyperlink {
+	?movieID = movieID;
+	?reviewID = reviewID;
+	directActionName = "DisplayReviews";
+}
+
+SelectionList: WORepetition {
+	item = rev;
+	list = movie.reviews; //VALID
+}
+
+String1: WOString {
+	value = movie.title; //VALID
+}
+
+String3: WOString {
+	value = review.reviewer; //VALID
+}
+
+String4: WOString {
+	value = review.review; //VALID
+}
+
+Toolbar: ToolbarComponent { }
