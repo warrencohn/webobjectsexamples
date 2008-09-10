@@ -12,7 +12,11 @@ Getting Started Instructions
 =============================
 
 1) If you don't have recent version of WOnder installed, then you can install it in any number of ways documented
-at http://wiki.objectstyle.org. However, for your convenience, a simple script is provided in this project's support
+in the tutorials at:
+
+    http://wiki.objectstyle.org/confluence/display/WOL/Tutorials
+
+However, for your convenience, a simple script is provided in this project's support
 folder named installWonder.sh which just downloads the latest Wonder and installs the frameworks only.
 
 TIP: To quickly get to the Support folder in Terminal.app, simply right-click the Support folder in Eclipse's Explorer view and
