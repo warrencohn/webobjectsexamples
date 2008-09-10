@@ -1,0 +1,9 @@
+# Contains the current svn version of Wonder that the team should be all using.
+
+# KK Sep 7, 2008, version 8280
+
+WONDER_TEAM_SVN_VERSION=8280
+
+
+
+
