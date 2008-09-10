@@ -1,4 +1,4 @@
-<project name="JavaBusinessLogic" default="build" basedir=".">
+<project name="GenericFramework" default="build" basedir=".">
 	<target name="build" depends="init.build,build.woframework" />
 
 	<target name="install" depends="init.install,build.woframework" />
@@ -58,13 +58,6 @@
 				<excludesfile name="woproject/resources.exclude.patternset" />
 			</resources>
 
-			<frameworks root="ProjectLocal" embed="false" eclipse="true" />
-			<frameworks root="External" embed="false" eclipse="true" />
-			<frameworks root="Local" embed="false" eclipse="true" />
-			<frameworks root="User" embed="false" eclipse="true" />
-			<frameworks root="System" embed="false" eclipse="true" />
-			<frameworks root="Network" embed="false" eclipse="true" />
-
 			<lib dir="Libraries">
 				<include name="*.jar" />
 			</lib>
@@ -93,6 +86,3 @@
 		</wocompile>
 	</target>
 </project>
-
-
-
