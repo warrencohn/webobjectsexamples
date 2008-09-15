@@ -19,14 +19,13 @@ package webobjectsexamples.sophisticateddatabaseexample;
 
 import java.util.GregorianCalendar;
 
-import com.webobjects.appserver.WOSession;
 import com.webobjects.eoaccess.EOObjectNotAvailableException;
 import com.webobjects.eoaccess.EOUtilities;
 import com.webobjects.eocontrol.EOEditingContext;
 import com.webobjects.foundation.NSKeyValueCoding;
 import com.webobjects.foundation.NSTimestamp;
 
-import er.extensions.appserver.ERXSession;
+import er.extensions.ERXSession;
 
 public class Session extends ERXSession {
 	/**

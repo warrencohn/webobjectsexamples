@@ -45,9 +45,7 @@
 
 package webobjectsexamples.woinheritance;
 
-import com.webobjects.appserver.WOSession;
-
-import er.extensions.appserver.ERXSession;
+import er.extensions.ERXSession;
 
 public class Session extends ERXSession {
 

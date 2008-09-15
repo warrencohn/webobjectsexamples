@@ -15,7 +15,7 @@ package webobjectsexamples.petstorewojava;
 import com.webobjects.appserver.WOSession;
 import com.webobjectsexamples.petstore.Account;
 
-import er.extensions.appserver.ERXSession;
+import er.extensions.ERXSession;
 
 public class Session extends ERXSession {
 

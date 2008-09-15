@@ -14,9 +14,7 @@ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL OR CONSE
 */
 package webobjectsexamples.xmlinteroperate;
 
-import com.webobjects.appserver.WOSession;
-
-import er.extensions.appserver.ERXSession;
+import er.extensions.ERXSession;
 
 public class Session extends ERXSession {
 

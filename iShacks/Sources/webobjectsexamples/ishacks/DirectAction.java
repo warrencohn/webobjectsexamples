@@ -24,7 +24,6 @@ import java.math.BigDecimal;
 
 import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WOComponent;
-import com.webobjects.appserver.WODirectAction;
 import com.webobjects.appserver.WODisplayGroup;
 import com.webobjects.appserver.WORequest;
 import com.webobjects.eoaccess.EODatabaseDataSource;
@@ -35,7 +34,7 @@ import com.webobjects.eocontrol.EOFetchSpecification;
 import com.webobjects.foundation.NSArray;
 import com.webobjects.foundation.NSMutableDictionary;
 
-import er.extensions.appserver.ERXDirectAction;
+import er.extensions.ERXDirectAction;
 
 public class DirectAction extends ERXDirectAction {
 

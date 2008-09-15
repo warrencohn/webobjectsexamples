@@ -28,7 +28,6 @@ import java.io.InputStream;
 
 import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WOApplication;
-import com.webobjects.appserver.WODirectAction;
 import com.webobjects.appserver.WOMultipartIterator;
 import com.webobjects.appserver.WORequest;
 import com.webobjects.appserver.WOResponse;
@@ -37,7 +36,7 @@ import com.webobjects.foundation.NSDictionary;
 import com.webobjects.foundation.NSLog;
 import com.webobjects.foundation.NSPathUtilities;
 
-import er.extensions.appserver.ERXDirectAction;
+import er.extensions.ERXDirectAction;
 
 
 public class DirectAction extends ERXDirectAction {

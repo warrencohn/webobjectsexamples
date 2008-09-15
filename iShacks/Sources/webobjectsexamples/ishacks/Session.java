@@ -30,12 +30,11 @@ import webobjectsexamples.realestate.server.User;
 import com.webobjects.appserver.WOApplication;
 import com.webobjects.appserver.WOContext;
 import com.webobjects.appserver.WOResponse;
-import com.webobjects.appserver.WOSession;
 import com.webobjects.eoaccess.EOUtilities;
 import com.webobjects.foundation.NSArray;
 import com.webobjects.foundation.NSTimestamp;
 
-import er.extensions.appserver.ERXSession;
+import er.extensions.ERXSession;
 
 public class Session extends ERXSession {
 

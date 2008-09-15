@@ -14,9 +14,7 @@ IN NO EVENT SHALL APPLE BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL OR CONSE
 */
 package webobjectsexamples.xmlinteroperate;
 
-import com.webobjects.appserver.WOApplication;
-
-import er.extensions.appserver.ERXApplication;
+import er.extensions.ERXApplication;
 
 public class Application extends ERXApplication {
 

@@ -51,7 +51,7 @@ import com.webobjects.appserver.WODirectAction;
 import com.webobjects.appserver.WORequest;
 import com.webobjects.eocontrol.EOEditingContext;
 
-import er.extensions.appserver.ERXDirectAction;
+import er.extensions.ERXDirectAction;
 
 public class DirectAction extends ERXDirectAction {
 

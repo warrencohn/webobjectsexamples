@@ -32,7 +32,7 @@ import com.webobjects.foundation.NSData;
 import com.webobjects.foundation.NSDictionary;
 import com.webobjects.foundation.NSPropertyListSerialization;
 
-import er.extensions.appserver.ERXApplication;
+import er.extensions.ERXApplication;
 
 public class Application extends ERXApplication {
 

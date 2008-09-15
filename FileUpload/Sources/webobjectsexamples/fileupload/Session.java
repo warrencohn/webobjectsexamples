@@ -16,9 +16,7 @@ SUCH DAMAGE.
 
 package webobjectsexamples.fileupload;
 
-import com.webobjects.appserver.WOSession;
-
-import er.extensions.appserver.ERXSession;
+import er.extensions.ERXSession;
 
 public class Session extends ERXSession {
 

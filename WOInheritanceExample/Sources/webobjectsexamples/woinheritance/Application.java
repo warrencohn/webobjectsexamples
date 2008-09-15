@@ -48,13 +48,11 @@ package webobjectsexamples.woinheritance;
 
 import java.net.URL;
 
-import com.webobjects.appserver.WOApplication;
-import com.webobjects.eoaccess.EOModel;
 import com.webobjects.eoaccess.EOModelGroup;
 import com.webobjects.foundation.NSLog;
 import com.webobjects.foundation.NSPathUtilities;
 
-import er.extensions.appserver.ERXApplication;
+import er.extensions.ERXApplication;
 
 public class Application extends ERXApplication {
     public String selectedModelType=null;
