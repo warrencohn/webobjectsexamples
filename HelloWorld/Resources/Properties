@@ -5,6 +5,10 @@
 # The properties listed are only examples, and are not intended to be comprehensive
 # Remove the leading '#' to uncomment a property
 
+# OGNL
+ognl.helperFunctions=true
+ognl.inlineBindings=true
+
 #WOAutoOpenInBrowser=true
 #WOAutoOpenClientApplication=true
 #WOPort=55555

@@ -23,49 +23,49 @@ import com.webobjects.foundation.NSArray;
 
 public class Session extends WOSession {
 
-    /**
+	/**
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 4596798090758478611L;
-//	private NSMutableDictionary _supportedLanguages = null;
+	//	private NSMutableDictionary _supportedLanguages = null;
 
-    public Session() {
-        super();
+	public Session() {
+		super();
 
-        /* ** Put your per-session initialization code here ** */
-    }
+		/* ** Put your per-session initialization code here ** */
+	}
 
-    private String _browserCharacterEncoding = null;
+	private String _browserCharacterEncoding = null;
 
-    @SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@Override
 	public void setLanguages(NSArray languageArray) {
-    	NSArray aLanguageArray = languageArray;
-        if ((aLanguageArray == null) || (aLanguageArray.count() == 0)) {
-            aLanguageArray = new NSArray("English");
-        }
+		NSArray aLanguageArray = languageArray;
+		if ((aLanguageArray == null) || (aLanguageArray.count() == 0)) {
+			aLanguageArray = new NSArray("English");
+		}
 
-        String preferredLanguage = (String) aLanguageArray.objectAtIndex(0);
-        if (preferredLanguage.equals("Japanese")) {
-            _browserCharacterEncoding = "SJIS";
-        } else {
-            _browserCharacterEncoding = "UTF-8";
-        }
+		String preferredLanguage = (String) aLanguageArray.objectAtIndex(0);
+		if (preferredLanguage.equals("Japanese")) {
+			_browserCharacterEncoding = "SJIS";
+		} else {
+			_browserCharacterEncoding = "UTF-8";
+		}
 
-        super.setLanguages(aLanguageArray);
-    }
+		super.setLanguages(aLanguageArray);
+	}
 
 
-    @Override
+	@Override
 	public void takeValuesFromRequest(WORequest aRequest, WOContext aContext) {
-        aRequest.setDefaultFormValueEncoding(_browserCharacterEncoding);
-        super.takeValuesFromRequest(aRequest, aContext);
-    }
+		aRequest.setDefaultFormValueEncoding(_browserCharacterEncoding);
+		super.takeValuesFromRequest(aRequest, aContext);
+	}
 
-    @Override
+	@Override
 	public void appendToResponse(WOResponse aResponse, WOContext aContext) {
-        aResponse.setContentEncoding(_browserCharacterEncoding);
-        super.appendToResponse(aResponse, aContext);
-    }
+		aResponse.setContentEncoding(_browserCharacterEncoding);
+		super.appendToResponse(aResponse, aContext);
+	}
 
 }
