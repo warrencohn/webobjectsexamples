@@ -19,6 +19,7 @@ package com.webobjects.examples.utilities;
 import java.util.Enumeration;
 
 import com.webobjects.appserver.WOContext;
+import com.webobjects.appserver.WOCookie;
 import com.webobjects.appserver.WOResponse;
 import com.webobjects.foundation.NSData;
 
@@ -86,7 +87,7 @@ public class WXResponseLogger  {
     public static void logResponseCookies(WOResponse aResponse){
         if(aResponse!=null){
             System.out.println("------------ Begin Response Cookies ------------");
-            Enumeration en=aResponse.cookies().objectEnumerator();
+            Enumeration<WOCookie> en=aResponse.cookies().objectEnumerator();
             while(en.hasMoreElements()){
                 System.out.println(en.nextElement());
             }
@@ -118,10 +119,10 @@ public class WXResponseLogger  {
     public static void logResponseHeaders(WOResponse aResponse){
         if(aResponse!=null){
             System.out.println("------------ Begin Response Headers ------------");
-            Enumeration en=aResponse.headerKeys().objectEnumerator();
+            Enumeration<String> en=aResponse.headerKeys().objectEnumerator();
             while(en.hasMoreElements()){
                 String hdr=(String)en.nextElement();
-                Enumeration en1=aResponse.headersForKey(hdr).objectEnumerator();
+                Enumeration<String> en1=aResponse.headersForKey(hdr).objectEnumerator();
                 while(en1.hasMoreElements()){
                     System.out.println(hdr+":"+en1.nextElement());
                 }

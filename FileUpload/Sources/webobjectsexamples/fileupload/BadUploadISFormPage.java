@@ -40,7 +40,7 @@ public class BadUploadISFormPage extends WOComponent {
 	 */
 	private static final long serialVersionUID = 7388803518218927171L;
 	// Instance variables for selections
-    public NSArray browserSelection = null;
+    public NSArray<String> browserSelection = null;
     public String popupSelection = null;
     public String radioButtonSelection = null;
 

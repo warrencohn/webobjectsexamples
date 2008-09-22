@@ -44,7 +44,7 @@ public class MultipleUploadOSFormPage extends MultipleUploadOSPage {
     public String Submit3 = "I'm feeling lucky";
 
     // Instance variables for selections
-    public NSArray browserSelection = null;
+    public NSArray<String> browserSelection = null;
     public String popupSelection = null;
     public String radioButtonSelection = null;
 

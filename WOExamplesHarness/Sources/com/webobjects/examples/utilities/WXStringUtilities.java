@@ -403,7 +403,7 @@ public class WXStringUtilities extends Object /* JC_WARNING - Please advise: thi
         }
     }
 
-    public static NSArray pathComponents(String path){
+    public static NSArray<String> pathComponents(String path){
         // Note I can't use java.io.File.pathSeparator since on OS X
         // this returns ":" which isn't the kind of paths I'm dealing with here
         String separator = "/";
@@ -430,7 +430,7 @@ public class WXStringUtilities extends Object /* JC_WARNING - Please advise: thi
 
     public static boolean isStringEmpty(String v){
         if(v == null) return true;
-        NSArray a = NSArray.componentsSeparatedByString(v, " ");
+        NSArray<String> a = NSArray.componentsSeparatedByString(v, " ");
         String v2 = a.componentsJoinedByString("");
         if("".equals(v2)) return true;
         return false;
@@ -438,7 +438,7 @@ public class WXStringUtilities extends Object /* JC_WARNING - Please advise: thi
 
     public static String stringNoSpaces(String v){
         if(v == null) return null;
-        NSArray a = NSArray.componentsSeparatedByString(v, " ");
+        NSArray<String> a = NSArray.componentsSeparatedByString(v, " ");
         String v2 = a.componentsJoinedByString("");
         return v2;
     }

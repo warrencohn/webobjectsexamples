@@ -42,7 +42,7 @@ public class JavaCommandShell extends Object {
      * @return				NSDictionary with the output and exit value
      */
 
-    public static NSDictionary invokeCommand( String command ) {
+    public static NSDictionary<String,Object> invokeCommand( String command ) {
 
         // Create the process
         Process commandManager = null;
@@ -51,11 +51,11 @@ public class JavaCommandShell extends Object {
         BufferedReader commandOutput;
 
         // Create a container and iterator for the output and an exit value
-        NSMutableArray outputArray = new NSMutableArray();
+        NSMutableArray<String> outputArray = new NSMutableArray<String>();
         String line;
 
         // Create a dictionary to return the output and exit value
-        NSMutableDictionary returnInfo = new NSMutableDictionary();
+        NSMutableDictionary<String,Object> returnInfo = new NSMutableDictionary<String,Object>();
 
         try {
 

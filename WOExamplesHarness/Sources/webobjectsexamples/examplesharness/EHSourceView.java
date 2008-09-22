@@ -33,7 +33,7 @@ public class EHSourceView extends WOComponent
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 3127188017035534022L;
-	private NSArray   _suffixes = null;
+	private NSArray<String>   _suffixes = null;
     public String  currentSuffix;
     private String  _componentName;
     public String  selectedSuffix = "html";
@@ -47,9 +47,9 @@ public class EHSourceView extends WOComponent
         return false;
     }
 
-    public NSArray suffixes()  {
+    public NSArray<String> suffixes()  {
         if (_suffixes==null) {
-            NSMutableArray aMutableArray = new NSMutableArray();
+            NSMutableArray<String> aMutableArray = new NSMutableArray<String>();
             aMutableArray.addObject("html");
             aMutableArray.addObject("wod");
             WOApplication anApplication = WOApplication.application();

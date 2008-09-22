@@ -37,7 +37,7 @@ public interface WXFileUtilitiesHandler{
      * @param userInfo  dict with info about the errors that happened.
      * @return   <code>true</code> if it is OK to proceed anyway.
      */
-    public boolean shouldProceedAfterError(File f, NSDictionary userInfo);
+    public boolean shouldProceedAfterError(File f, NSDictionary<String,Object> userInfo);
 
     /**
      * Call back that file utility handlers must implement so they

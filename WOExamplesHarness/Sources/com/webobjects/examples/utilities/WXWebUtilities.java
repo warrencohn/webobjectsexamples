@@ -2,11 +2,11 @@
  WXWebUtilities.java
  [WOExamplesHarness Project]
 
-© Copyright 2001-2007 Apple Inc. All rights reserved.
+ï¿½ Copyright 2001-2007 Apple Inc. All rights reserved.
 
-IMPORTANT:  This Apple software is supplied to you by Apple Computer, Inc. (ÒAppleÓ) in consideration of your agreement to the following terms, and your use, installation, modification or redistribution of this Apple software constitutes acceptance of these terms.  If you do not agree with these terms, please do not use, install, modify or redistribute this Apple software.
+IMPORTANT:  This Apple software is supplied to you by Apple Computer, Inc. (ï¿½Appleï¿½) in consideration of your agreement to the following terms, and your use, installation, modification or redistribution of this Apple software constitutes acceptance of these terms.  If you do not agree with these terms, please do not use, install, modify or redistribute this Apple software.
 
-In consideration of your agreement to abide by the following terms, and subject to these terms, Apple grants you a personal, non-exclusive license, under AppleÕs copyrights in this original Apple software (the ÒApple SoftwareÓ), to use, reproduce, modify and redistribute the Apple Software, with or without modifications, in source and/or binary forms; provided that if you redistribute the Apple Software in its entirety and without modifications, you must retain this notice and the following text and disclaimers in all such redistributions of the Apple Software.  Neither the name, trademarks, service marks or logos of Apple Computer, Inc. may be used to endorse or promote products derived from the Apple Software without specific prior written permission from Apple.  Except as expressly stated in this notice, no other rights or licenses, express or implied, are granted by Apple herein, including but not limited to any patent rights that may be infringed by your derivative works or by other works in which the Apple Software may be incorporated.
+In consideration of your agreement to abide by the following terms, and subject to these terms, Apple grants you a personal, non-exclusive license, under Appleï¿½s copyrights in this original Apple software (the ï¿½Apple Softwareï¿½), to use, reproduce, modify and redistribute the Apple Software, with or without modifications, in source and/or binary forms; provided that if you redistribute the Apple Software in its entirety and without modifications, you must retain this notice and the following text and disclaimers in all such redistributions of the Apple Software.  Neither the name, trademarks, service marks or logos of Apple Computer, Inc. may be used to endorse or promote products derived from the Apple Software without specific prior written permission from Apple.  Except as expressly stated in this notice, no other rights or licenses, express or implied, are granted by Apple herein, including but not limited to any patent rights that may be infringed by your derivative works or by other works in which the Apple Software may be incorporated.
 
 The Apple Software is provided by Apple on an "AS IS" basis.  APPLE MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
 
@@ -33,6 +33,7 @@ import com.webobjects.appserver.WOResponse;
 import com.webobjects.appserver.WOSession;
 import com.webobjects.appserver.xml.WOXMLCoder;
 import com.webobjects.appserver.xml.WOXMLDecoder;
+import com.webobjects.foundation.NSArray;
 import com.webobjects.foundation.NSDictionary;
 import com.webobjects.foundation.NSMutableDictionary;
 
@@ -194,11 +195,11 @@ public class WXWebUtilities {
      *                        were in the request
      * @return URL for the given request.
      */
-    public static String completeUrlFromRequest(WORequest req, WOSession s, NSDictionary custFormValues){
+    public static String completeUrlFromRequest(WORequest req, WOSession s, NSDictionary<String,NSArray<Object>> custFormValues){
 
         // Here we gather the formvalues from the context's request
-        NSMutableDictionary formValues = new NSMutableDictionary();
-        NSDictionary reqFormValues = req.formValues();
+        NSMutableDictionary<String,NSArray<Object>> formValues = new NSMutableDictionary<String,NSArray<Object>>();
+        NSDictionary<String,NSArray<Object>> reqFormValues = req.formValues();
         String formValuesForURL = null;
         if (reqFormValues != null) {
             formValues = reqFormValues.mutableClone();
@@ -214,7 +215,7 @@ public class WXWebUtilities {
         if (s != null) {
         	hasSession = true;
             sid = s.sessionID();
-            formValues.setObjectForKey(sid,"wosid");
+            formValues.setObjectForKey(new NSArray<Object>(sid),"wosid");
       }
 
         String directActionURLFragment = WXUtilities.EmptyString;
@@ -313,7 +314,7 @@ public class WXWebUtilities {
 
         // Get the WebServerConfig.plist file
         File configPlist = new File( new String( installPath + "/Library/WebObjects/Configuration/" ), "WebServerConfig.plist" );
-        NSDictionary configDict = (NSDictionary)WXFileUtilities.objectFromPListFile( configPlist );
+        NSDictionary<String,Object> configDict = (NSDictionary<String,Object>)WXFileUtilities.objectFromPListFile( configPlist );
 
         // Return the content
         return (String)configDict.objectForKey( "DocumentRoot" );

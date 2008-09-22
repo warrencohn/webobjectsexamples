@@ -2,11 +2,11 @@
  WXRequestLogger.java
  [WOExamplesHarness Project]
 
-© Copyright 2001-2007 Apple Inc. All rights reserved.
+ï¿½ Copyright 2001-2007 Apple Inc. All rights reserved.
 
-IMPORTANT:  This Apple software is supplied to you by Apple Computer, Inc. (ÒAppleÓ) in consideration of your agreement to the following terms, and your use, installation, modification or redistribution of this Apple software constitutes acceptance of these terms.  If you do not agree with these terms, please do not use, install, modify or redistribute this Apple software.
+IMPORTANT:  This Apple software is supplied to you by Apple Computer, Inc. (ï¿½Appleï¿½) in consideration of your agreement to the following terms, and your use, installation, modification or redistribution of this Apple software constitutes acceptance of these terms.  If you do not agree with these terms, please do not use, install, modify or redistribute this Apple software.
 
-In consideration of your agreement to abide by the following terms, and subject to these terms, Apple grants you a personal, non-exclusive license, under AppleÕs copyrights in this original Apple software (the ÒApple SoftwareÓ), to use, reproduce, modify and redistribute the Apple Software, with or without modifications, in source and/or binary forms; provided that if you redistribute the Apple Software in its entirety and without modifications, you must retain this notice and the following text and disclaimers in all such redistributions of the Apple Software.  Neither the name, trademarks, service marks or logos of Apple Computer, Inc. may be used to endorse or promote products derived from the Apple Software without specific prior written permission from Apple.  Except as expressly stated in this notice, no other rights or licenses, express or implied, are granted by Apple herein, including but not limited to any patent rights that may be infringed by your derivative works or by other works in which the Apple Software may be incorporated.
+In consideration of your agreement to abide by the following terms, and subject to these terms, Apple grants you a personal, non-exclusive license, under Appleï¿½s copyrights in this original Apple software (the ï¿½Apple Softwareï¿½), to use, reproduce, modify and redistribute the Apple Software, with or without modifications, in source and/or binary forms; provided that if you redistribute the Apple Software in its entirety and without modifications, you must retain this notice and the following text and disclaimers in all such redistributions of the Apple Software.  Neither the name, trademarks, service marks or logos of Apple Computer, Inc. may be used to endorse or promote products derived from the Apple Software without specific prior written permission from Apple.  Except as expressly stated in this notice, no other rights or licenses, express or implied, are granted by Apple herein, including but not limited to any patent rights that may be infringed by your derivative works or by other works in which the Apple Software may be incorporated.
 
 The Apple Software is provided by Apple on an "AS IS" basis.  APPLE MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, REGARDING THE APPLE SOFTWARE OR ITS USE AND OPERATION ALONE OR IN COMBINATION WITH YOUR PRODUCTS.
 
@@ -97,10 +97,10 @@ public class WXRequestLogger  {
     public static void logRequestCookies(WORequest aRequest){
         if(aRequest!=null){
             System.out.println("------------ Begin Request Cookies ------------");
-            Enumeration en=aRequest.cookieValues().keyEnumerator();
+            Enumeration<String> en=aRequest.cookieValues().keyEnumerator();
             while(en.hasMoreElements()){
                 String ck=(String)en.nextElement();
-                Enumeration en1=((NSArray)aRequest.cookieValues().objectForKey(ck)).objectEnumerator();
+                Enumeration<String> en1=((NSArray<String>)aRequest.cookieValues().objectForKey(ck)).objectEnumerator();
                 while(en1.hasMoreElements()){
                     System.out.println(ck+"="+en1.nextElement());
                 }
@@ -113,10 +113,10 @@ public class WXRequestLogger  {
     public static void logRequestFormValues(WORequest aRequest){
         if(aRequest!=null){
             System.out.println("------------ Begin Request Form Values ------------");
-            Enumeration en=aRequest.formValueKeys().objectEnumerator();
+            Enumeration<String> en=aRequest.formValueKeys().objectEnumerator();
             while(en.hasMoreElements()){
                 String fv=(String)en.nextElement();
-                Enumeration en1=aRequest.formValuesForKey(fv).objectEnumerator();
+                Enumeration<Object> en1=aRequest.formValuesForKey(fv).objectEnumerator();
                 while(en1.hasMoreElements()){
                     System.out.println(fv+"="+en1.nextElement());
                 }
@@ -159,10 +159,10 @@ public class WXRequestLogger  {
     public static void logRequestHeaders(WORequest aRequest){
         if(aRequest!=null){
             System.out.println("------------ Begin Request Headers ------------");
-            Enumeration en=aRequest.headerKeys().objectEnumerator();
+            Enumeration<String> en=aRequest.headerKeys().objectEnumerator();
             while(en.hasMoreElements()){
                 String hdr=(String)en.nextElement();
-                Enumeration en1=aRequest.headersForKey(hdr).objectEnumerator();
+                Enumeration<String> en1=aRequest.headersForKey(hdr).objectEnumerator();
                 while(en1.hasMoreElements()){
                     System.out.println(hdr+":"+en1.nextElement());
                 }

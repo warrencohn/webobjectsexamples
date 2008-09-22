@@ -26,7 +26,7 @@ public class EHTabPanel extends WOComponent
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 302401234749931322L;
-	private NSArray   _list;
+	private NSArray<String>   _list;
     private Object _currentItem;
     private Object _selectedItem;
     private String  _bgcolor;
@@ -51,9 +51,9 @@ public class EHTabPanel extends WOComponent
         return _currentItem;
     }
 
-    public NSArray list()    {
+    public NSArray<String> list()    {
         if (null==_list) {
-            _list = (NSArray) valueForBinding("list");
+            _list = (NSArray<String>) valueForBinding("list");
         }
         return _list;
     }
@@ -83,7 +83,7 @@ public class EHTabPanel extends WOComponent
             if (aSelectedItem!=null) {
                 _selectedItem = aSelectedItem;
             } else {
-                NSArray   aList = list();
+                NSArray<String>   aList = list();
                 aSelectedItem = aList.objectAtIndex(0);
                 setSelectedItem(aSelectedItem);
             }

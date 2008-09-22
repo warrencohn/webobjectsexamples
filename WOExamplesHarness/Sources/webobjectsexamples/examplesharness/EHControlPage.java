@@ -38,7 +38,7 @@ public class EHControlPage extends WOComponent {
 	public String  currentComponentTitle;
     public String  selectedComponentTitle;
 
-    private static NSDictionary _examplesDictionary = null;
+    private static NSDictionary<String,Object> _examplesDictionary = null;
     private static NSMutableArray<String> _sortedComponentTitlesList = null;
 
     public EHControlPage(WOContext aContext)  {
@@ -46,10 +46,10 @@ public class EHControlPage extends WOComponent {
         session().savePageInPermanentCache(this);
     }
 
-    private static NSDictionary _allExamplesDictionary() {
+    private static NSDictionary<String,Object> _allExamplesDictionary() {
 
 		// Create a dictionary for the example information, and add the intro page
-		NSMutableDictionary aMutableDictionary = new NSMutableDictionary();
+		NSMutableDictionary<String,Object> aMutableDictionary = new NSMutableDictionary<String,Object>();
 		aMutableDictionary.setObjectForKey("EHIntroductionPage", "Introduction");
 
 		// Get the information on the examples from the defined list
@@ -65,10 +65,10 @@ public class EHControlPage extends WOComponent {
 				String propPath = aBundle.resourcePathForLocalizedResourceNamed("ExamplesProperties.plist", null);
 				if (propPath != null) {
 
-					NSDictionary aDictionary = (NSDictionary) JavaPropertyListUtilities.propertyListFromContentsOfFile(propPath);
+					NSDictionary<String,Object> aDictionary = (NSDictionary<String,Object>) JavaPropertyListUtilities.propertyListFromContentsOfFile(propPath);
 					if (aDictionary != null) {
 
-						NSDictionary examplesDict = (NSDictionary) aDictionary.objectForKey("ExamplePages");
+						NSDictionary<String,Object> examplesDict = (NSDictionary<String,Object>) aDictionary.objectForKey("ExamplePages");
 						if (examplesDict != null) {
 							aMutableDictionary.addEntriesFromDictionary(examplesDict);
 						}
@@ -79,7 +79,7 @@ public class EHControlPage extends WOComponent {
 		return aMutableDictionary;
 	}
 
-    public static NSDictionary examplesDictionary()  {
+    public static NSDictionary<String,Object> examplesDictionary()  {
         if (_examplesDictionary==null) {
             _examplesDictionary = EHControlPage._allExamplesDictionary();
         }
@@ -87,7 +87,7 @@ public class EHControlPage extends WOComponent {
     }
 
     public static String pageNameForTitle(String aComponentTitle)  {
-        NSDictionary aComponentNameDictionary = EHControlPage.examplesDictionary();
+        NSDictionary<String,Object> aComponentNameDictionary = EHControlPage.examplesDictionary();
         String  aComponentName = (String)aComponentNameDictionary.objectForKey(aComponentTitle);
         return aComponentName;
     }
@@ -95,9 +95,9 @@ public class EHControlPage extends WOComponent {
     public static NSArray<String> sortedComponentTitlesList()  {
         if (_sortedComponentTitlesList==null) {
             String  anIntroductionPageTitle = "Introduction";
-            NSDictionary anExamplesDictionary = EHControlPage.examplesDictionary();
+            NSDictionary<String,Object> anExamplesDictionary = EHControlPage.examplesDictionary();
 
-            Enumeration  aComponentTitlesList = anExamplesDictionary.keyEnumerator();
+            Enumeration<String>  aComponentTitlesList = anExamplesDictionary.keyEnumerator();
             _sortedComponentTitlesList = new NSMutableArray<String>();
             _sortedComponentTitlesList.addObject(anIntroductionPageTitle);
             while (aComponentTitlesList.hasMoreElements()) {
@@ -118,12 +118,12 @@ public class EHControlPage extends WOComponent {
         return _sortedComponentTitlesList;
     }
 
-    public NSArray sortedComponentTitles() {
+    public NSArray<String> sortedComponentTitles() {
         return EHControlPage.sortedComponentTitlesList();
     }
 
     public static String introductionPageName()  {
-        NSArray   aPageNameList = EHControlPage.sortedComponentTitlesList();
+        NSArray<String>   aPageNameList = EHControlPage.sortedComponentTitlesList();
         String  aPageTitle = (String)aPageNameList.objectAtIndex(0);
         String  aPageName = EHControlPage.pageNameForTitle(aPageTitle);
         return aPageName;

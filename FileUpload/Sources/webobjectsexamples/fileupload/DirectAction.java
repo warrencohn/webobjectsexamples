@@ -170,7 +170,7 @@ public class DirectAction extends ERXDirectAction {
 
 	if ( (wfd != null) && (wfd.isFileUpload()) ) {
 	    // Get the filename information from the request
-	    NSDictionary contentDispHeaders = wfd.contentDispositionHeaders();
+	    NSDictionary<String,Object> contentDispHeaders = wfd.contentDispositionHeaders();
 	    String aFileName = (String) contentDispHeaders.valueForKey("filename");
 
 	    // Get just the name for the uploaded file from aFileName.

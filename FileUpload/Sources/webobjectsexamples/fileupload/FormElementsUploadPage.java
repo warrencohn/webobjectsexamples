@@ -35,7 +35,7 @@ public class FormElementsUploadPage extends WOComponent {
 	 */
 	private static final long serialVersionUID = 7429016556434743440L;
 	// Instance variables for selections
-    public NSArray browserSelection = null;
+    public NSArray<String> browserSelection = null;
     public String popupSelection = null;
     public String radioButtonSelection = null;
 

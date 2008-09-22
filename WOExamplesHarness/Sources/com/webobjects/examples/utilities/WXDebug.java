@@ -110,7 +110,7 @@ public class WXDebug extends Object {
     static int _pseudoPID          = WXDebug._genPseudoPID();
     static int _mode               = PONTIFICAL;
     static PrintStream out         = System.err;
-    static NSMutableDictionary tagList = null;
+    static NSMutableDictionary<String,Object> tagList = null;
 
     /**
      * This is the method that you'll use to log anything with the
@@ -348,7 +348,7 @@ public class WXDebug extends Object {
      */
     public static void addTag( String aTag ) {
         if( tagList == null )
-            tagList = new NSMutableDictionary();
+            tagList = new NSMutableDictionary<String,Object>();
 
         tagList.setObjectForKey( aTag, aTag );
     }

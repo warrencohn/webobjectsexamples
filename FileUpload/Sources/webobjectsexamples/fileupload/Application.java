@@ -21,7 +21,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.webobjects.appserver.WOApplication;
 import com.webobjects.foundation.NSData;
 import com.webobjects.foundation.NSLog;
 import com.webobjects.foundation.NSPathUtilities;

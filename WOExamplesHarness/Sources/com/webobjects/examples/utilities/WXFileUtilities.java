@@ -228,9 +228,9 @@ public class WXFileUtilities {
      * @return           <code>true</code> if all the members of the folder could be
      *                   removed.
      */
-    private static boolean removeDirectoryContentsWithHandlerUserInfo(File f, WXFileUtilitiesHandler handler, NSMutableDictionary userInfo){
+    private static boolean removeDirectoryContentsWithHandlerUserInfo(File f, WXFileUtilitiesHandler handler, NSMutableDictionary<String,Object> userInfo){
         String files[] = f.list();
-        Enumeration enumerator = new NSArray<String>(files).objectEnumerator();
+        Enumeration<String> enumerator = new NSArray<String>(files).objectEnumerator();
         boolean success = true;
         while (enumerator.hasMoreElements()) {
             String file = (String)enumerator.nextElement();
@@ -253,7 +253,7 @@ public class WXFileUtilities {
      * @return           <code>true</code> if all the file was removed
      *                   (or not but the handler approved anyway).
      */
-    private static boolean removeFileAtPathHandlerUserInfo(String filePath, WXFileUtilitiesHandler handler, NSMutableDictionary userInfo){
+    private static boolean removeFileAtPathHandlerUserInfo(String filePath, WXFileUtilitiesHandler handler, NSMutableDictionary<String,Object> userInfo){
         File f = new File(filePath);
         boolean success = false;
         if(f.exists()){
@@ -298,7 +298,7 @@ public class WXFileUtilities {
      * This method is recursively called. First it creates the directory
      * at toFile. Then copies to the toFile folder, all files found in fromFile.
      */
-    private static boolean copyDirectoryContentsWithHandlerUserInfo(File fromFile, File toFile, WXFileUtilitiesHandler handler, NSMutableDictionary userInfo){
+    private static boolean copyDirectoryContentsWithHandlerUserInfo(File fromFile, File toFile, WXFileUtilitiesHandler handler, NSMutableDictionary<String,Object> userInfo){
         boolean success = true;
         if(handler != null){
             handler.willProcessPath(fromFile, toFile.getAbsolutePath());
@@ -335,7 +335,7 @@ public class WXFileUtilities {
      * <p>
      * This code was based on an example in the book <i>Java Examples</i> by David Flanagan.
      */
-    private static boolean copyFileWithHandlerUserInfo(File fromFile, File toFile, WXFileUtilitiesHandler handler, NSMutableDictionary userInfo){
+    private static boolean copyFileWithHandlerUserInfo(File fromFile, File toFile, WXFileUtilitiesHandler handler, NSMutableDictionary<String,Object> userInfo){
         boolean success = true;
         FileInputStream from = null;
         FileOutputStream to = null;
@@ -382,7 +382,7 @@ public class WXFileUtilities {
      * copying code. The method performs a number of tests to make sure everything
      * is in order.
      */
-    private static boolean copyPathToPathHandlerUserInfo(String fromPath, String toPath, WXFileUtilitiesHandler handler, NSMutableDictionary userInfo){
+    private static boolean copyPathToPathHandlerUserInfo(String fromPath, String toPath, WXFileUtilitiesHandler handler, NSMutableDictionary<String,Object> userInfo){
         File fromFile = new File(fromPath);
         File toFile = new File(toPath);
         boolean success = false;
@@ -497,7 +497,7 @@ public class WXFileUtilities {
         boolean success = true;
         WXDebug.println(1, "WXFileUtilities: removeFileAtPathHandler:"+filePath);
         if(filePath != null){
-            NSMutableDictionary userInfo = new NSMutableDictionary();
+            NSMutableDictionary<String,Object> userInfo = new NSMutableDictionary<String,Object>();
             success = removeFileAtPathHandlerUserInfo(filePath, handler, userInfo);
         }
         return success;
@@ -513,7 +513,7 @@ public class WXFileUtilities {
         boolean error = false;
         File f = new File(fromPath);
         if(f.isDirectory()){
-            NSArray parts = NSArray.componentsSeparatedByString(toPath, fromPath);
+            NSArray<String> parts = NSArray.componentsSeparatedByString(toPath, fromPath);
             //WXDebug.println(1, "WXFileUtilities: destinationIsWithinSource: parts:"+parts);
             if(parts.count() > 1) error = true;
         }
@@ -569,7 +569,7 @@ public class WXFileUtilities {
                 WXDebug.println(1, "WXFileUtilities: copyPathToPathHandler: destinationIsWithinSource");
                 success = false;
             }else{
-                NSMutableDictionary userInfo = new NSMutableDictionary();
+                NSMutableDictionary<String,Object> userInfo = new NSMutableDictionary<String,Object>();
                 success = copyPathToPathHandlerUserInfo(fromPath, toPath, handler, userInfo);
             }
         }
@@ -730,10 +730,10 @@ public class WXFileUtilities {
      * @return dictionary of stats
      *
      */
-    public static NSDictionary fileAttributesAtPathTraverseLink(String path, boolean flag){
-        NSMutableDictionary d = null;
+    public static NSDictionary<String,Object> fileAttributesAtPathTraverseLink(String path, boolean flag){
+        NSMutableDictionary<String,Object> d = null;
         if(path != null){
-            d = new NSMutableDictionary();
+            d = new NSMutableDictionary<String,Object>();
             File f = new File(path);
             if(f.isDirectory()){
                 d.setObjectForKey("NSFileTypeDirectory", "NSFileType");
@@ -760,7 +760,7 @@ public class WXFileUtilities {
      * @param frameworkName    name of your framwork that uses the config file
      * return                  a dictionary representing the contents of the plist.
      */
-    public static NSDictionary loadConfigFile(String filename, String frameworkName){
+    public static NSDictionary<String,Object> loadConfigFile(String filename, String frameworkName){
         if (filename == null)
 			return null;
 		URL localConfigPathURL = WOApplication.application().resourceManager().pathURLForResourceNamed(filename, frameworkName, null);
@@ -770,7 +770,7 @@ public class WXFileUtilities {
 			return null;
 		}
 		String localConfigString = WXFileUtilities.loadFileAtPath(localConfigPathURL.getPath());
-		NSDictionary d = (NSDictionary) NSPropertyListSerialization.propertyListFromString(localConfigString);
+		NSDictionary<String,Object> d = (NSDictionary<String,Object>) NSPropertyListSerialization.propertyListFromString(localConfigString);
 		WXDebug.println(1, "d:" + d);
 		return d;
     }
@@ -791,7 +791,7 @@ public class WXFileUtilities {
 	 * @param frameworkName
 	 *            name of your framwork that uses the config file return a dictionary representing the contents of the plist.
 	 */
-	public static NSDictionary loadConfigAndMergeFiles(String filename, String frameworkName){
+	public static NSDictionary<String,Object> loadConfigAndMergeFiles(String filename, String frameworkName){
         WXDebug.println(1, "ENTEREDs");
 
          WOResourceManager rm = WOApplication.application().resourceManager();
@@ -829,7 +829,7 @@ public class WXFileUtilities {
             WXDebug.println(1, "localConfigPath was missing:"+filename);
         }
 
-        NSMutableDictionary d = new NSMutableDictionary();
+        NSMutableDictionary<String,Object> d = new NSMutableDictionary<String,Object>();
 		if (frameworkName != null) {
 			URL globalConfigPathURL = rm.pathURLForResourceNamed(filename, frameworkName, null);
 			if (globalConfigPathURL == null)
@@ -838,7 +838,7 @@ public class WXFileUtilities {
 			WXDebug.println(1, "localConfigPath:" + (localConfigPathURL != null ? localConfigPathURL.getPath() : "null"));
 			WXDebug.println(1, "globalConfigPath:" + globalConfigPathURL.getPath());
 			String globalConfigString = WXFileUtilities.loadFileAtPath(globalConfigPathURL.getPath());
-            NSDictionary parentD = (NSDictionary)NSPropertyListSerialization.propertyListFromString(globalConfigString);
+            NSDictionary<String,Object> parentD = (NSDictionary<String,Object>)NSPropertyListSerialization.propertyListFromString(globalConfigString);
             d = parentD.mutableClone();
         }
 
@@ -846,7 +846,7 @@ public class WXFileUtilities {
             String localConfigString = WXFileUtilities.loadFileAtPath(localConfigPathURL.getPath());
             WXDebug.println(1, "localConfigString:"+localConfigString);
             if(localConfigString != null){
-                NSDictionary childD = (NSDictionary)NSPropertyListSerialization.propertyListFromString(localConfigString);
+                NSDictionary<String,Object> childD = (NSDictionary<String,Object>)NSPropertyListSerialization.propertyListFromString(localConfigString);
                 d.addEntriesFromDictionary(childD);
             }
         }
@@ -855,14 +855,14 @@ public class WXFileUtilities {
             String systemConfigString = WXFileUtilities.loadFileAtPath(systemConfigPath);
             WXDebug.println(1, "systemConfigString:"+systemConfigString);
             if(systemConfigString != null){
-                NSDictionary childD = (NSDictionary)NSPropertyListSerialization.propertyListFromString(systemConfigString);
+                NSDictionary<String,Object> childD = (NSDictionary<String,Object>)NSPropertyListSerialization.propertyListFromString(systemConfigString);
                 d.addEntriesFromDictionary(childD);
             }
         }
         return d;
     }
 
-    private static NSDictionary _mimeTypesDict = null;
+    private static NSDictionary<String,Object> _mimeTypesDict = null;
 
     /**
      * Returns an NSDictionary to use for looking up MIME types per filename extension.
@@ -876,7 +876,7 @@ public class WXFileUtilities {
      *
      * return              The mime type lookup dictionary.
      */
-    public static NSDictionary mimeTypesDict(){
+    public static NSDictionary<String,Object> mimeTypesDict(){
         if(_mimeTypesDict == null){
             _mimeTypesDict = loadConfigAndMergeFiles("WXMimeTypes.plist","WOExamplesHarness");
         }
@@ -897,7 +897,7 @@ public class WXFileUtilities {
      */
     public static String mimeTypeFromPath(String path) {
 
-        NSDictionary mimeTypes;
+        NSDictionary<String,Object> mimeTypes;
         String mimeType;
         String pathExtension;
         int dotIndex = path.lastIndexOf(".");
