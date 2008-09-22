@@ -46,7 +46,7 @@ public class Unit extends EOGenericRecord {
 	@Override
 	public void validateForSave() throws NSValidation.ValidationException {
 		int rentalsOut = 0;
-		NSArray rentals = rentals();
+		NSArray<Rental> rentals = rentals();
 		if (rentals != null) {
 			int count = rentals.count();
 			for (int i = 0; i < count; i++) {
@@ -74,12 +74,12 @@ public class Unit extends EOGenericRecord {
 		takeStoredValueForKey(value, DateAcquiredKey);
 	}
 
-	public NSArray rentals() {
-		return (NSArray) (storedValueForKey(RentalsKey));
+	public NSArray<Rental> rentals() {
+		return (NSArray<Rental>) (storedValueForKey(RentalsKey));
 	}
 
 	public boolean isAvailableForRent() {
-		NSArray rentals = rentals();
+		NSArray<Rental> rentals = rentals();
 		if (rentals != null) {
 			int count = rentals.count();
 			for (int i = 0; i < count; i++) {

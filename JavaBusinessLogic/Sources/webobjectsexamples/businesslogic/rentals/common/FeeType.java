@@ -44,7 +44,7 @@ public class FeeType extends EOGenericRecord {
 
 	private static EOGlobalID _globalIDForPrimaryKey(int primaryKey, EOEditingContext editingContext) {
 		EOFetchSpecification fetchSpecification = new EOFetchSpecification(FeeTypeEntityName, new EOKeyValueQualifier(FeeTypeIDKey, EOQualifier.QualifierOperatorEqual, new Integer(primaryKey)), null);
-		NSArray objects = editingContext.objectsWithFetchSpecification(fetchSpecification);
+		NSArray<FeeType> objects = editingContext.objectsWithFetchSpecification(fetchSpecification);
 		return (objects.count() > 0) ? editingContext.globalIDForObject((EOEnterpriseObject) (objects.objectAtIndex(0))) : null;
 	}
 

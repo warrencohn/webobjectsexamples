@@ -45,4 +45,20 @@
             name = Video; 
         }
     ); 
+    userInfo = {
+        "_EntityModeler" = {
+            activeDatabaseConfigName = Default; 
+            databaseConfigs = {
+                Default = {
+                    adaptorName = JDBC; 
+                    connectionDictionary = {
+                        "LC_ALL" = "iso_1"; 
+                        URL = "jdbc:derby:movies"; 
+                        databaseEncoding = "ISO Latin-1"; 
+                        driver = "org.apache.derby.jdbc.EmbeddedDriver"; 
+                    }; 
+                }; 
+            }; 
+        }; 
+    }; 
 }

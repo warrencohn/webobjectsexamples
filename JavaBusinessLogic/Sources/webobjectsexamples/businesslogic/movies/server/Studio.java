@@ -15,6 +15,7 @@ package webobjectsexamples.businesslogic.movies.server;
 import webobjectsexamples.businesslogic.movies.common.Talent;
 
 import com.webobjects.eocontrol.EOEnterpriseObject;
+import com.webobjects.eocontrol.EOGenericRecord;
 import com.webobjects.foundation.NSArray;
 
 public class Studio extends webobjectsexamples.businesslogic.movies.common.Studio {
@@ -28,7 +29,7 @@ public class Studio extends webobjectsexamples.businesslogic.movies.common.Studi
 
 	@Override
 	public void buyAllMoviesStarringTalent(Talent talent) {
-		NSArray talentMovies = talent.moviesStarredIn();
+		NSArray<EOGenericRecord> talentMovies = talent.moviesStarredIn();
 		int count = talentMovies.count();
 		for (int i = 0; i < count; i++) {
 			EOEnterpriseObject movie = (EOEnterpriseObject) (talentMovies.objectAtIndex(i));

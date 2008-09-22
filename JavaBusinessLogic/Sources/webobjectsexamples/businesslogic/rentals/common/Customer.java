@@ -26,6 +26,7 @@ import com.webobjects.foundation.NSTimestamp;
 import com.webobjects.foundation.NSValidation;
 
 public class Customer extends EOGenericRecord {
+
 	private static final long		serialVersionUID		= -1996155567059278076L;
 
 	public static final String		CityKey					= "city";
@@ -68,7 +69,7 @@ public class Customer extends EOGenericRecord {
 	public void validateForSave() throws NSValidation.ValidationException {
 		// calculate deposit
 		BigDecimal deposit = new BigDecimal(0);
-		NSArray outRentals = outRentals();
+		NSArray<Rental> outRentals = outRentals();
 		int count = outRentals.count();
 		for (int i = 0; i < count; i++) {
 			BigDecimal amount = (BigDecimal) (((EOEnterpriseObject) (outRentals.objectAtIndex(i))).valueForKeyPath(_DepositAmountKeyPath));
@@ -113,8 +114,8 @@ public class Customer extends EOGenericRecord {
 		takeStoredValueForKey(value, MemberSinceKey);
 	}
 
-	public NSArray rentals() {
-		return (NSArray) (storedValueForKey(RentalsKey));
+	public NSArray<Rental> rentals() {
+		return (NSArray<Rental>) (storedValueForKey(RentalsKey));
 	}
 
 	public BigDecimal costRestriction() {
@@ -150,7 +151,7 @@ public class Customer extends EOGenericRecord {
 		return new Integer(allFees().count());
 	}
 
-	public NSArray unpaidFees() {
+	public NSArray<Fee> unpaidFees() {
 		EOQualifier qualifier = new EOKeyValueQualifier(Fee.DatePaidKey, EOQualifier.QualifierOperatorEqual, NSKeyValueCoding.NullValue);
 		return EOQualifier.filteredArrayWithQualifier(allFees(), qualifier);
 	}
@@ -163,16 +164,16 @@ public class Customer extends EOGenericRecord {
 		return (unpaidFees().count() > 0);
 	}
 
-	public NSArray allRentals() {
-		NSArray rentals = rentals();
-		return (rentals != null) ? rentals : new NSArray();
+	public NSArray<Rental> allRentals() {
+		NSArray<Rental> rentals = rentals();
+		return (rentals != null) ? rentals : new NSArray<Rental>();
 	}
 
 	public Number numberOfAllRentals() {
 		return new Integer(allRentals().count());
 	}
 
-	public NSArray outRentals() {
+	public NSArray<Rental> outRentals() {
 		EOQualifier qualifier = new EOKeyValueQualifier(Rental.IsOutKey, EOQualifier.QualifierOperatorEqual, Boolean.TRUE);
 		return EOQualifier.filteredArrayWithQualifier(allRentals(), qualifier);
 	}
@@ -185,7 +186,7 @@ public class Customer extends EOGenericRecord {
 		return (outRentals().count() > 0);
 	}
 
-	public NSArray overdueRentals() {
+	public NSArray<Rental> overdueRentals() {
 		EOQualifier qualifier = new EOKeyValueQualifier(Rental.IsOverdueKey, EOQualifier.QualifierOperatorEqual, Boolean.TRUE);
 		return EOQualifier.filteredArrayWithQualifier(allRentals(), qualifier);
 	}

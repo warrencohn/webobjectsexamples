@@ -19,6 +19,7 @@ import com.webobjects.foundation.NSTimestamp;
 import com.webobjects.foundation.NSValidation;
 
 public class Rental extends EOGenericRecord {
+
 	private static final long	serialVersionUID		= -6572273760378405850L;
 
 	public static final String	CustomerKey				= "customer";
@@ -78,8 +79,8 @@ public class Rental extends EOGenericRecord {
 		takeStoredValueForKey(value, DateReturnedKey);
 	}
 
-	public NSArray fees() {
-		return (NSArray) (storedValueForKey(FeesKey));
+	public NSArray<Fee> fees() {
+		return (NSArray<Fee>) (storedValueForKey(FeesKey));
 	}
 
 	public NSTimestamp dateDue() {
@@ -113,7 +114,7 @@ public class Rental extends EOGenericRecord {
 
 	public void feePaid() {
 		if (dateReturned() != null) {
-			NSArray fees = fees();
+			NSArray<Fee> fees = fees();
 			if (fees != null) {
 				int count = fees.count();
 				for (int i = 0; i < count; i++) {

@@ -42,8 +42,8 @@ public class Talent extends EOGenericRecord {
 		return (String) (storedValueForKey(LastNameKey));
 	}
 
-	public NSArray roles() {
-		return (NSArray) (storedValueForKey(RolesKey));
+	public NSArray<MovieRole> roles() {
+		return (NSArray<MovieRole>) (storedValueForKey(RolesKey));
 	}
 
 	public String fullName() {
@@ -54,9 +54,9 @@ public class Talent extends EOGenericRecord {
 		return new String(buffer);
 	}
 
-	public NSArray moviesStarredIn() {
-		NSMutableArray moviesStarredIn = new NSMutableArray();
-		NSArray movies = (NSArray) (roles().valueForKey("movie"));
+	public NSArray<EOGenericRecord> moviesStarredIn() {
+		NSMutableArray<EOGenericRecord> moviesStarredIn = new NSMutableArray<EOGenericRecord>();
+		NSArray<EOGenericRecord> movies = (NSArray<EOGenericRecord>) (roles().valueForKey("movie"));
 		if (movies != null) {
 			int count = movies.count();
 			for (int i = 0; i < count; i++) {

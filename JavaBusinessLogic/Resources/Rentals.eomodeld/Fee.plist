@@ -10,7 +10,6 @@
             valueType = B; 
         }, 
         {
-            allowsNull = Y; 
             columnName = "DATE_PAID"; 
             externalType = timestamp; 
             name = datePaid; 
@@ -19,21 +18,22 @@
         {
             columnName = "FEE_ID"; 
             externalType = integer; 
-            name = feeID;  
+            name = feeID; 
             valueClassName = NSNumber; 
             valueType = i; 
         }, 
         {
             columnName = "FEE_TYPE_ID"; 
             externalType = integer; 
-            name = feeTypeID;  
+            name = feeTypeID; 
             valueClassName = NSNumber; 
             valueType = i; 
         }, 
         {
+            allowsNull = Y; 
             columnName = "RENTAL_ID"; 
             externalType = integer; 
-            name = rentalID;  
+            name = rentalID; 
             valueClassName = NSNumber; 
             valueType = i; 
         }

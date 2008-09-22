@@ -44,7 +44,7 @@ public class RentalTerms extends EOCustomObject {
 	private static EOGlobalID _globalIDForPrimaryKey(int primaryKey, EOEditingContext editingContext) {
 		EOFetchSpecification fetchSpecification = new EOFetchSpecification(RentalTermsEntityName,
 				new EOKeyValueQualifier(RentalTermsIDKey, EOQualifier.QualifierOperatorEqual, new Integer(primaryKey)), null);
-		NSArray objects = editingContext.objectsWithFetchSpecification(fetchSpecification);
+		NSArray<RentalTerms> objects = editingContext.objectsWithFetchSpecification(fetchSpecification);
 		return (objects.count() > 0) ? editingContext.globalIDForObject((EOEnterpriseObject) (objects.objectAtIndex(0))) : null;
 	}
 

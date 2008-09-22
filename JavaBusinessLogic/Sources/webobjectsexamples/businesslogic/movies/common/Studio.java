@@ -57,11 +57,11 @@ public abstract class Studio extends EOGenericRecord {
 		takeStoredValueForKey(value, BudgetKey);
 	}
 
-	public NSArray movies() {
-		return (NSArray) (storedValueForKey(MovieKey));
+	public NSArray<EOGenericRecord> movies() {
+		return (NSArray<EOGenericRecord>) (storedValueForKey(MovieKey));
 	}
 
-	public void setMovies(NSArray value) {
+	public void setMovies(NSArray<EOGenericRecord> value) {
 		takeStoredValueForKey(value, MovieKey);
 	}
 
@@ -75,7 +75,7 @@ public abstract class Studio extends EOGenericRecord {
 
 	public Number portfolioValue() {
 		double total = 0;
-		NSArray revenues = (NSArray) (movies().valueForKey("revenue"));
+		NSArray<BigDecimal> revenues = (NSArray<BigDecimal>) (movies().valueForKey("revenue"));
 		int count = revenues.count();
 		for (int i = 0; i < count; i++) {
 			Object revenue = revenues.objectAtIndex(i);
