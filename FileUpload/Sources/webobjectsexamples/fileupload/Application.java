@@ -27,7 +27,7 @@ import com.webobjects.foundation.NSLog;
 import com.webobjects.foundation.NSPathUtilities;
 import com.webobjects.foundation.NSRange;
 
-import er.extensions.ERXApplication;
+import er.extensions.appserver.ERXApplication;
 
 public class Application extends ERXApplication {
     static String _fileUploadPath = null;

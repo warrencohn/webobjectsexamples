@@ -18,7 +18,7 @@ import com.webobjects.appserver.WOContext;
 import com.webobjects.foundation.NSLog;
 import com.webobjects.foundation.NSPathUtilities;
 
-import er.extensions.ERXApplication;
+import er.extensions.appserver.ERXApplication;
 
 import java.net.URL;
 

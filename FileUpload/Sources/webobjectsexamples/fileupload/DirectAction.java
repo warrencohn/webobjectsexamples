@@ -36,7 +36,7 @@ import com.webobjects.foundation.NSDictionary;
 import com.webobjects.foundation.NSLog;
 import com.webobjects.foundation.NSPathUtilities;
 
-import er.extensions.ERXDirectAction;
+import er.extensions.appserver.ERXDirectAction;
 
 
 public class DirectAction extends ERXDirectAction {
