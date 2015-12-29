@@ -6,8 +6,8 @@
 # Remove the leading '#' to uncomment a property
 
 # OGNL
-ognl.helperFunctions=true
-ognl.inlineBindings=true
+#ognl.helperFunctions=true
+#ognl.inlineBindings=true
 
 #WOAutoOpenInBrowser=true
 #WOAutoOpenClientApplication=true
